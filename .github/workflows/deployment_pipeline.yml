@@ -47,7 +47,7 @@ jobs:
         env:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEFAULT_BUMP: patch
+         
         if: |
           github.event_name == 'push'
             && !contains(env.COMMIT_MESSAGES, '#skip')
