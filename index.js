@@ -7,7 +7,7 @@ const Person = require('./models/person')
 
 app.use(cors())
 app.use(express.json())
-app.use(express.static('frontend/build'))
+app.use(express.static('build'))
 
 morgan.token('body', function (req) {
   return JSON.stringify(req.body)
