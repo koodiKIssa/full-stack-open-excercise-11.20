@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: '16'
       - name: Install dependencies
-        run: cd frontend && npm install && cd.. && npm install
+        run: 'cd frontend && npm install && cd.. && npm install'
       - name: lint
         run: npm run lint
       - name: build
