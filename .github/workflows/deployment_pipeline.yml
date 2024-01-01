@@ -18,12 +18,12 @@ jobs:
         with:
           node-version: '16'
       - name: Install dependencies
-        run: npm install
+        run: cd frontend && npm install && cd.. && npm install
       - name: lint
         run: npm run lint
       - name: build
         run: npm run build:ui
-      
+
       - name: Deploy to production
         env:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
@@ -35,7 +35,7 @@ jobs:
           service-id: ${{ secrets.RENDER_SERVICE_ID }}
           api-key: ${{ secrets.RENDER_API_KEY }}
           wait-for-success: true
- 
+
   tag_release:
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-20.04
